@@ -1,19 +1,15 @@
 import POM.HeaderPage;
 import POM.StepOnePage;
-import POM.StepTwoPage;
-import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertEquals;
 
-public class NegativeTestFieldOneStepPage {
+public class NegativeTestFieldsOneStepPage {
 
     WebDriver driver;
     @Before
@@ -29,7 +25,7 @@ public class NegativeTestFieldOneStepPage {
 
     /*Негативное тестирование полей страницы ввода персональных данных (шаг 1)*/
     @Test
-    public void NegativeTestFieldOneStep() {
+    public void NegativeTestFieldsOneStep() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.closeCookie();

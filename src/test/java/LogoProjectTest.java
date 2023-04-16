@@ -32,6 +32,15 @@ public class LogoProjectTest {
         assertEquals("Возврат на страницу Самоката не был совершен","https://qa-scooter.praktikum-services.ru/",headerPage.clickSamokat());
     }
 
+    /*Проверка: если нажать на лого Яндекса, попадешь на главную стр. Яндекса*/
+    @Test
+    public void logoYandexTest() {
+        driver.get("https://qa-scooter.praktikum-services.ru/");
+        HeaderPage headerPage = new HeaderPage(driver);
+        headerPage.closeCookie();
+        assertEquals("Переход на главную страницу Яндекса не будет осуществлен","https://yandex.ru/",headerPage.getHrefLogoYandex());
+    }
+
 
     @After
     public void closeBrowser() {

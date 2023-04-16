@@ -27,7 +27,7 @@ public class HeaderPage {
     private By logoSamokat = By.xpath("//img[@alt='Scooter']");
 
     /*Лого Яндекса*/
-    private By logoYandex = By.xpath("//img[@alt='Yandex']");
+    private By logoYandex = By.xpath("//a[contains(@class,'LogoYandex')]");
 
     /*Поле ввода номера заказа*/
     private By fielNumOrder = By.xpath("//input[@placeholder='Введите номер заказа']");
@@ -88,4 +88,8 @@ public class HeaderPage {
         driver.findElement(fielNumOrder).sendKeys(num);
     }
 
+    /*Возврат href Лого Яндекса*/
+    public String getHrefLogoYandex () {
+        return driver.findElement(logoYandex).getAttribute("href");
+    }
 }

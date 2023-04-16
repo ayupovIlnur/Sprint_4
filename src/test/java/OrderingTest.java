@@ -47,9 +47,11 @@ public class OrderingTest {
         stepTwoPage.clickCheckboxBlack();
         stepTwoPage.clickCheckboxGrey();
         stepTwoPage.inputComment("Тестовый комменатрий для курьера от Евгения Вольнова");
+
         /*Проверка появления модального окна "Хотите оформить заказ?*/
         stepTwoPage.clickOrder();
         MatcherAssert.assertThat("Отсуствие модального окна 'Хотите оформить заказ?'",stepTwoPage.getModalWindowPropertyTextContent(),containsString("Хотите оформить заказ?"));
+
         /*Проверка появления модального окна "Заказ оформлен"*/
         stepTwoPage.orderConfirmation();
         MatcherAssert.assertThat("Отсуствие модального окна 'Заказ оформлен'",stepTwoPage.getModalWindowPropertyTextContent(),containsString("Заказ оформлен"));
@@ -77,9 +79,11 @@ public class OrderingTest {
         stepTwoPage.clickCheckboxBlack();
         stepTwoPage.clickCheckboxGrey();
         stepTwoPage.inputComment("Тестовый комменатрий для курьера от Нурлана");
+
         /*Проверка появления модального окна "Хотите оформить заказ?*/
         stepTwoPage.clickOrder();
         MatcherAssert.assertThat("Отсуствие модального окна 'Хотите оформить заказ?'",stepTwoPage.getModalWindowPropertyTextContent(),containsString("Хотите оформить заказ?"));
+
         /*Проверка появления модального окна "Заказ оформлен"*/
         stepTwoPage.orderConfirmation();
         MatcherAssert.assertThat("Отсуствие модального окна 'Заказ оформлен'",stepTwoPage.getModalWindowPropertyTextContent(),containsString("Заказ оформлен"));

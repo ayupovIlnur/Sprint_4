@@ -29,14 +29,14 @@ public class NegativeNumOrderTest {
     }
 
 
-    /*Если тест прошел - картинка о том, что заказ не найден - появилась.*/
+    /*Если тест прошел - картинка о том, что заказ не найден появилась.*/
     @Test
     public void NegativNumOrderTest() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.closeCookie();
         headerPage.clickStatusOrder();
-        headerPage.inputNumOrder("7118401");
+        headerPage.inputNumOrder("7118401"); // это несуществующий заказ
         headerPage.clickButtonGo();
         new WebDriverWait(driver,3)
                 .until(ExpectedConditions.visibilityOfElementLocated(imgNotFound));
