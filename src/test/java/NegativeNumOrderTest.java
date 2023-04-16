@@ -29,7 +29,7 @@ public class NegativeNumOrderTest {
     }
 
 
-    /*Если тест прошел - картинка о том, что заказ не найдет - появилась.*/
+    /*Если тест прошел - картинка о том, что заказ не найден - появилась.*/
     @Test
     public void NegativNumOrderTest() {
         driver.get("https://qa-scooter.praktikum-services.ru/");

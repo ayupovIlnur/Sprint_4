@@ -22,9 +22,23 @@ public class StepOnePage {
 
     /*Кнопка Далее*/
     private By nextButton = By.xpath("//div[contains(@class,'Next')]//button[text()='Далее']");
+
+    /*Предупреждение о неправильно введеннеом имени*/
+    private By warningName = By.xpath("//div[text()='Введите корректное имя']");
+
+    /*Предупреждение о неправильно введеннеой фамилии*/
+    private By warningSurname = By.xpath("//div[text()='Введите корректную фамилию']");
+
+    /*Предупреждение о неправильно введенном адресе*/
+    private By warningAddress = By.xpath("//div[text()='Введите корректный адрес']");
+
+    /*Предупреждение о неправильно введенном телефоне*/
+    private By warningPhone = By.xpath("//div[text()='Введите корректный номер']");
+
     public StepOnePage(WebDriver driver) {
         this.driver = driver;
     }
+
 
     /*Ожидание появления поля, ввод имени*/
     public void inputName (String name) {
@@ -47,11 +61,31 @@ public class StepOnePage {
     }
     /* Ввод телефона*/
     public void inputPhone (String phone) {
-        driver.findElement(fieldPhone).sendKeys(phone);
+        driver.findElement(fieldPhone).sendKeys(phone,Keys.TAB);
     }
     /* Переход на следующий шаг*/
     public void nextStep() {
         driver.findElement(nextButton).click();
+    }
+
+    /*Появилось ли предупреждение о неправльно введенном имени*/
+    public boolean warningName () {
+        return driver.findElement(warningName).isDisplayed();
+    }
+
+    /*Появилось ли предупреждение о неправльно введенной фамилии*/
+    public boolean warningSurname () {
+        return driver.findElement(warningSurname).isDisplayed();
+    }
+
+    /*Появилось ли предупреждение о неправльно введенном адресе*/
+    public boolean warningAddress () {
+        return driver.findElement(warningAddress).isDisplayed();
+    }
+
+    /*Появилось ли предупреждение о неправльно введенном телефоне*/
+    public boolean warningPhone () {
+        return driver.findElement(warningPhone).isDisplayed();
     }
 
 }
