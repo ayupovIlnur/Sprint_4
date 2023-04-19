@@ -6,7 +6,7 @@ import org.junit.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.assertj.core.api.SoftAssertions;
 import static org.junit.Assert.assertEquals;
 
 public class NegativeTestFieldsOneStepPage {
@@ -36,10 +36,12 @@ public class NegativeTestFieldsOneStepPage {
         stepOne.inputSurname("Volnov");
         stepOne.inputAddress("7 house street of Pushkin");
         stepOne.inputPhone("восемь восемьсот 555 35 35");
-        assertEquals("Не появилось предупреждение о неправильно введенном имени",true,stepOne.warningName());
-        assertEquals("Не появилось предупреждение о неправильно введенной фамилии",true,stepOne.warningSurname());
-        assertEquals("Не появилось предупреждение о неправильно введенном адресе",true,stepOne.warningAddress());
-        assertEquals("Не появилось предупреждение о неправильно введенном телефоне",true,stepOne.warningPhone());
+        SoftAssertions softAssertion = new SoftAssertions();
+        softAssertion.assertThat(stepOne.warningName()).isEqualTo(true);
+        softAssertion.assertThat(stepOne.warningSurname()).isEqualTo(true);
+        softAssertion.assertThat(stepOne.warningAddress()).isEqualTo(true);
+        softAssertion.assertThat(stepOne.warningPhone()).isEqualTo(true);
+        softAssertion.assertAll();
     }
 
 

@@ -1,14 +1,13 @@
 import POM.HeaderPage;
 import POM.StepOnePage;
 import POM.StepTwoPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.hamcrest.core.StringContains.containsString;
 public class OrderingTest {
@@ -50,11 +49,11 @@ public class OrderingTest {
 
         /*Проверка появления модального окна "Хотите оформить заказ?*/
         stepTwoPage.clickOrder();
-        MatcherAssert.assertThat("Отсуствие модального окна 'Хотите оформить заказ?'",stepTwoPage.getModalWindowPropertyTextContent(),containsString("Хотите оформить заказ?"));
+        MatcherAssert.assertThat(String.format("Отсуствие модального окна '%s'",DataForTesting.MODAL_WINDOW_QUE_PLACE_ORDER),stepTwoPage.getModalWindowPropertyTextContent(),containsString(DataForTesting.MODAL_WINDOW_QUE_PLACE_ORDER));
 
         /*Проверка появления модального окна "Заказ оформлен"*/
         stepTwoPage.orderConfirmation();
-        MatcherAssert.assertThat("Отсуствие модального окна 'Заказ оформлен'",stepTwoPage.getModalWindowPropertyTextContent(),containsString("Заказ оформлен"));
+        MatcherAssert.assertThat(String.format("Отсуствие модального окна '%s'",DataForTesting.MODAL_WINDOW_PLACE_ORDER),stepTwoPage.getModalWindowPropertyTextContent(),containsString(DataForTesting.MODAL_WINDOW_PLACE_ORDER));
     }
 
     /* Заказ через нижнюю кнопку*/
@@ -82,11 +81,11 @@ public class OrderingTest {
 
         /*Проверка появления модального окна "Хотите оформить заказ?*/
         stepTwoPage.clickOrder();
-        MatcherAssert.assertThat("Отсуствие модального окна 'Хотите оформить заказ?'",stepTwoPage.getModalWindowPropertyTextContent(),containsString("Хотите оформить заказ?"));
+        MatcherAssert.assertThat(String.format("Отсуствие модального окна '%s'",DataForTesting.MODAL_WINDOW_QUE_PLACE_ORDER),stepTwoPage.getModalWindowPropertyTextContent(),containsString(DataForTesting.MODAL_WINDOW_QUE_PLACE_ORDER));
 
         /*Проверка появления модального окна "Заказ оформлен"*/
         stepTwoPage.orderConfirmation();
-        MatcherAssert.assertThat("Отсуствие модального окна 'Заказ оформлен'",stepTwoPage.getModalWindowPropertyTextContent(),containsString("Заказ оформлен"));
+        MatcherAssert.assertThat(String.format("Отсуствие модального окна '%s'",DataForTesting.MODAL_WINDOW_PLACE_ORDER),stepTwoPage.getModalWindowPropertyTextContent(),containsString(DataForTesting.MODAL_WINDOW_PLACE_ORDER));
     }
     @After
     public void closeBrowser() {

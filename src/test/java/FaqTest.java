@@ -8,6 +8,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.GeckoDriverInfo;
 import org.openqa.selenium.firefox.GeckoDriverService;
 import static org.junit.Assert.assertEquals;
@@ -30,6 +31,7 @@ public class FaqTest {
     public void startUp() {
 
         /*Выбор браузера*/
+
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 

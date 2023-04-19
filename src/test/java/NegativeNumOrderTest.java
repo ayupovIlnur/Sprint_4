@@ -1,13 +1,11 @@
 import POM.HeaderPage;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -36,7 +34,7 @@ public class NegativeNumOrderTest {
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.closeCookie();
         headerPage.clickStatusOrder();
-        headerPage.inputNumOrder("7118401"); // это несуществующий заказ
+        headerPage.inputNumOrder(DataForTesting.INVALID_ORDER_NUMBER);
         headerPage.clickButtonGo();
         new WebDriverWait(driver,3)
                 .until(ExpectedConditions.visibilityOfElementLocated(imgNotFound));
